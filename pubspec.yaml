@@ -57,7 +57,6 @@ flutter:
     - assets/image/dito.png
     - assets/image/smart.png
     - assets/image/tnt.png
-    - assets/others/splash.json
 
 flutter_icons:
   android: true

@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:flutter/services.dart';
 
 import 'prefix_utils.dart';
 
@@ -10,7 +11,9 @@ class MyApp extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return MaterialApp(
-        debugShowCheckedModeBanner: false, home: NumberIdentifier());
+      debugShowCheckedModeBanner: false,
+      home: NumberIdentifier(),
+    );
   }
 }
 
@@ -68,20 +71,24 @@ class _NumberIdentifierState extends State<NumberIdentifier> {
                 padding: const EdgeInsets.only(bottom: 8.0),
                 child: Image.asset(
                   _imageAsset,
-                  width: 250, // Adjust the width as needed
-                  height: 250, // Adjust the height as needed
+                  width: 250,
+                  height: 250,
                 ),
               ),
             Container(
-              width: 200, // Set a specific width for the TextField
+              width: 200,
               child: TextField(
                 controller: _controller,
                 keyboardType: TextInputType.number,
-                textAlign: TextAlign.center, // Center text alignment
+                textAlign: TextAlign.center,
                 decoration: InputDecoration(
                   hintText: 'Input number here',
                 ),
                 onChanged: (text) => _identifyNumber(),
+                inputFormatters: [
+                  FilteringTextInputFormatter.digitsOnly,
+                  LengthLimitingTextInputFormatter(4),
+                ],
               ),
             ),
           ],

@@ -2,7 +2,7 @@
     <application
         android:label="Sim Identify"
         android:name="${applicationName}"
-        android:icon="@mipmap/sim">
+        android:icon="@mipmap/ic_launcher">
         <activity
             android:name=".MainActivity"
             android:exported="true"
